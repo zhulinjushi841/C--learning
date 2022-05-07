@@ -17,7 +17,7 @@ void mySort(T arr[], int len)
 	for (int i = 0; i < len; i++)
 	{
 		int min = i;
-		for (int j = 0; j < len; j++)
+		for (int j = i+1; j < len; j++)
 		{
 			if (arr[min] > arr[j])
 			{
