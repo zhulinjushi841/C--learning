@@ -1,37 +1,32 @@
 #include <iostream>
 using namespace std;
 
-//继承中的对象模型
 class Base
 {
 public:
+	Base()
+	{
+		A = 100;
+	}
 	int A;
-protected:
-	int B;
-private:
-	int C;
 };
 
 class Son :public Base
 {
 public:
-	int D;
+	Son()
+	{
+		A = 200;
+	}
+	int A;
 };
-
-//利用开发人员命令提示工具查看对象模型 在开始界面中寻找Developer Command Prompt for vs2019
-//跳转盘符 G:
-// 跳转文件路径 cd 具体路径
-// dir 查看当前目录
-// 查看命名 cl /dl reportSingleClassLayout类名 文件名
-//跳转
 
 void test01()
 {
-	//父类中全部非静态成员属性均会被子类继承下去
-	// 大小为 16
-	//父类中私有成员属性 被编译器隐藏 访问不到 但是却是被继承
-	cout << "size of Son " << sizeof(Son) << endl;
+	Son s1;
+	cout << s1.A << endl;
 }
+
 int main()
 {
 	test01();
