@@ -68,25 +68,25 @@ void test01()
 	//以下四种随意挑选一种记忆即可 建议前三种
 
 	//第一种
-	/*char buf[1024] = { 0 };
+	char buf[1024] = { 0 };
 	while (ifs >> buf)
 	{
 		cout << buf << endl;
-	}*/
+	}
 
 	//第二种
-	//char buf[1024] = { 0 };		//加上{}是对数组进行初始化，且初始值为0
-	//while (ifs.getline(buf, sizeof(buf)))
-	//{
-	//	cout << buf << endl;
-	//}
+	char buf[1024] = { 0 };		//加上{}是对数组进行初始化，且初始值为0
+	while (ifs.getline(buf, sizeof(buf)))
+	{
+		cout << buf << endl;
+	}
 
 	//第三种
-	/*string buf;
+	string buf;
 	while (getline(ifs, buf))
 	{
 		cout << buf << endl;
-	}*/
+	}
 
 	//第四种
 	char c;
