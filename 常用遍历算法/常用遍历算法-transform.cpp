@@ -33,18 +33,18 @@ using namespace std;
 class Transform
 {
 public:
-	int operator() (int a)
+	int operator()(int v)
 	{
-		return a;
+		return v;
 	}
 };
 
 class myPrint
 {
 public:
-	void operator() (int a )
+	void operator()(int val )
 	{
-		cout << a << " ";
+		cout << val << " ";
 	}
 };
 
@@ -59,6 +59,7 @@ void test01()
 	vector<int> vTarget;	//目标容器
 
 	vTarget.resize(v1.size());		//目标容器 需要提前开辟空间
+
 	transform(v1.begin(), v1.end(), vTarget.begin(), vTarget.end(), Transform());
 
 	for_each(vTarget.begin(), vTarget.end(), myPrint());
