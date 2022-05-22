@@ -1,7 +1,6 @@
 #include<iostream>
 #include<algorithm>
 #include<numeric>
-#include<string>
 #include<vector>
 using namespace std;
 //
@@ -16,46 +15,34 @@ using namespace std;
 // count			//统计元素个数
 // count_if			//按条件统计元素个数
 // 
-// find_if
+// count
 // 功能描述：
-// 按照条件查找元素
+// 统计元素个数
 // 函数原型：
-// find_if(iterator beg, iterator end, _Pred);
-// 按值查找元素，找到并返回指定位置迭代器，找不到返回结束迭代器位置
+// count(iterator beg, iterator end, value);
+// 统计元素出现次数
+// 
 // beg开始迭代器
 // end结束迭代器
-// _Pred函数或者谓词(返回bool类型的仿函数)
+// value查找的元素
 //
 
 
-//1.查找 内置数据类型
-class GreaterFive
-{
-public:
-	bool operator()(int a)
-	{
-		return a > 5;
-	}
-};
-
+//常用查找算法 
 void test01()
 {
 	vector<int> v1;
-	for (int i = 0; i < 10; i++)
-	{
-		v1.push_back(i);
-	}
+	
+	v1.push_back(10);
+	v1.push_back(40);
+	v1.push_back(10);
+	v1.push_back(20);
+	v1.push_back(30);
+	v1.push_back(10);
 
-	//查找 容器中 是否有 5 这个元素
-	vector<int>::iterator it = find_if(v1.begin(), v1.end(), GreaterFive());
-	if (it == v1.end())
-	{
-		cout << "没有找到" << endl;
-	}
-	else
-	{
-		cout << "找到：" << *it << endl;
-	}
+	int num = count(v1.begin(), v1.end(), 10);
+
+	cout << "10的元素个数为：" << num << endl;
 }
 
 
@@ -70,7 +57,7 @@ public:
 	//重载== 底层find知道如何对比Person数据类型
 	bool operator==(const Person& p)
 	{
-		if (this->Name == p.Name && this->Age == p.Age)
+		if (this->Age == p.Age)
 			return true;
 		else
 			return false;
@@ -80,16 +67,7 @@ public:
 	int Age;
 };
 
-//2.查找 自定义数据类型
-
-class Greater20
-{
-public:
-	bool operator()(Person& p)
-	{
-		return p.Age > 20;
-	}
-};
+//查找 自定义数据类型
 void test02()
 {
 	vector<Person> v;
@@ -99,24 +77,18 @@ void test02()
 	Person p3("c", 19);
 	Person p4("d", 23);
 
+	Person p("e", 14);
+
 	//放入到容器中
 	v.push_back(p1);
 	v.push_back(p2);
 	v.push_back(p3);
 	v.push_back(p4);
+	
 
-
-	//寻找年龄大于20的人
-	vector<Person>::iterator it = find_if(v.begin(), v.end(), Greater20());
-
-	if (it == v.end())
-	{
-		cout << "未找到" << endl;
-	}
-	else
-	{
-		cout << "找到元素 姓名：" << it->Name << " 年龄：" << it->Age << endl;
-	}
+	int num = count(v.begin(), v.end(), p);
+	
+	cout << "与e同岁数的人员个数为：" << num << endl;
 
 }
 
