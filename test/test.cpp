@@ -1,48 +1,18 @@
 #include<iostream>
 using namespace std;
-class Animal
-{
-public:
-	virtual void speak()
-	{
-		cout << "Animal is talking." << endl;
-	}
- };
 
-class Cat :public Animal
+class Calculator
 {
 public:
-	void speak()
+	virtual int getResult(int a, int b)
 	{
-		cout << "Cat is talking." << endl;
+		return 0;
 	}
+	int num1;
+	int num2;
 };
 
-class Dog :public Animal
+class Add :public Calculator
 {
 public:
-	void speak()
-	{
-		cout << "Dog is talking." << endl;
-	}
 };
-
-void doSpeak(Animal& animal)
-{
-	animal.speak();
-}
-
-void test01()
-{
-	Cat cat;
-	Dog dog;
-	doSpeak(cat);
-	doSpeak(dog);
-}
-
-int main()
-{
-	test01();
-	system("pause");
-	return 0;
-}
