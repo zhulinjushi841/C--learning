@@ -13,19 +13,24 @@ using namespace std;
 // replace_if			//容器内指定范围满足条件的元素替换为新元素
 // swap					//互换两个容器的元素
 // 
-// replace
+// swap
 // 功能描述：
-// 将容器内指定范围的旧元素修改为新元素
+// 互换两个容器的元素
 // 函数原型：
-// replace(iterator beg, iterator end, oldvalue, newvalue);
-// 将区间内旧元素 替换成 新元素
-// beg 开始迭代器
-// end 结束迭代器
-// oldvalue 旧元素
-// newvalue 新元素
+// swap(container c1, container c2);
+// 互换两个容器的元素
+// C1 容器1
+// C2 容器2
 // 
 //
-
+class MyPrint
+{
+public:
+	void operator() (int val)
+	{
+		cout << val << " ";
+	}
+};
 
 void Print(int val)
 {
@@ -35,19 +40,27 @@ void Print(int val)
 void test01()
 {
 	vector<int> v1;
+	vector<int> v2;
 
 	for (int i = 0; i < 10; i++)
 	{
 		v1.push_back(i);
+		v2.push_back(100 + i);
 	}
 
-	vector<int> v2;
-	v2.resize(v1.size());
-
-	copy(v1.begin(), v1.end(), v2.begin());
+	cout << "交换前 ：" << endl;
+	for_each(v1.begin(), v1.end(), Print);
+	cout << endl;
 	for_each(v2.begin(), v2.end(), Print);
 	cout << endl;
 
+	swap(v1, v2);
+	cout << "交换后  ：" << endl;
+	for_each(v1.begin(), v1.end(), Print);
+	cout << endl;
+	for_each(v2.begin(), v2.end(), Print);
+	cout << endl;
+	
 
 }
 
