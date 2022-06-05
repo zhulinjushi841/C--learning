@@ -21,6 +21,10 @@ void test01()
 	cout << "ĞÕÃû£º " << p2.first << "ÄêÁä£º " << p2.second << endl;
 }
 
+pair<string, int> p("Jack", 19);
+pair<string, int> p2 = make_pair("Jerry", 39);
+
+
 int main()
 {
 	test01();
