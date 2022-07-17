@@ -1,22 +1,39 @@
 #include<iostream>
 #include<vector>
+#include<string>
 using namespace std;
 //
-// 结构体
-// 8.1结构体基本概念
-// 结构体属于用于自定义的数据类型，允许用户存储不同的数据类型
-// 
-// 8.2结构体定义和使用
-// 语法： struct 结构体名 {结构体成员列表};
-// 通过在结构体中创建变量的方式有三种：
-// struct 结构体名 变量名
-// struct 结构体名 变量名={成员1值，成员2值...}
-// 定义结构体时顺便创建变量
+// 8.7结构体中const使用场景
+// 作用：用const来防止误操作
 //
 
-//int main()
-//{
-//
-//	system("pause");
-//	return 0;
-//}
+//学生结构体定义
+struct Student
+{
+	string name;
+	int age;
+	int score;
+};
+
+//const使用场景
+//将函数中的形参改为指针，可以减少内存空间，而且不会复制新的副本出来
+void printStudent(const Student* stu)	//加const防止函数体中的误操作
+{
+	//stu->age = 100; //操作失败，因为加了const修饰
+	cout << "姓名：" << stu->name << " 年龄：" << stu->age << " 分数：" << stu->score << endl;
+
+}
+
+
+
+int main() 
+{
+	//创建结构体变量
+	struct Student s = { "Zhangsan",15,70 };
+
+	//通过函数打印结构体变量信息
+	printStudent(&s);
+
+	system("pause");
+	return 0;
+}
