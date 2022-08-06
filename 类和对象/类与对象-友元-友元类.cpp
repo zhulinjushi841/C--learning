@@ -19,43 +19,64 @@ using namespace std;
 // 成员函数做友元
 //
 
-//建筑物类
+//
+// 类做友元
+//
+
+class Building;
+class GoodGay
+{
+public:
+	GoodGay();
+
+	void visit();	//参观函数 访问Building中的属性
+	Building* building;
+	
+};
+
 class Building
 {
-	//goodGay全局函数是Building的好朋友，可以访问Building中的私有成员
-	friend void goodGay(Building* building);
+	friend class GoodGay;
 public:
-	Building()
-	{
-		m_SittingRoom = "客厅";
-		m_BedRoom = "卧室";
-	}
-
+	Building();
 public:
 	string m_SittingRoom;	//客厅
 
 private:
 	string m_BedRoom;	//卧室
-
 };
 
-//全局函数
-void goodGay(Building * building)
+//类外写成员函数
+Building::Building()
 {
-	cout << "好基友全局函数 正在访问：" << building->m_SittingRoom << endl;
-
-	cout << "好基友全局函数 正在访问：" << building->m_BedRoom << endl;
+	m_SittingRoom = "客厅";
+	m_BedRoom = "卧室";
 }
+
+GoodGay::GoodGay()
+{
+	//创建建筑物对象
+	building = new Building;
+}
+
+void GoodGay::visit()
+{
+	cout << "好基友类正在访问：" << building->m_SittingRoom << endl;
+
+	cout << "好基友类正在访问：" << building->m_BedRoom << endl;
+}
+
 
 void test01()
 {
-	Building building;
-	goodGay(&building);
-
+	GoodGay gg;
+	gg.visit();
 }
+
 
 
 int main()
 {
 	test01();
+	system("pause");
 }
