@@ -1,7 +1,7 @@
-#include<iostream>
-#include<vector>
-using namespace std;
-//
+//#include<iostream>
+//#include<vector>
+//using namespace std;
+////
 // 职工管理系统
 // 1.管理系统需求
 // 职工管理系统可以用来管理公司内所有员工的信息
