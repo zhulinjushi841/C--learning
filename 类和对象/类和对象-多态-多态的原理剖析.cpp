@@ -1,13 +1,22 @@
-#include <iostream>
-using namespace std;
+//#include <iostream>
+//using namespace std;
+////
+//// 
+//// 总结：
+//// 多态满足条件
+//// 1.有继承关系
+//// 2.子类重写父类中的虚函数
+//// 
+//// 多态使用条件
+//// 父类指针或引用指向子类对象
+//// 重写：
+//// 函数返回值类型 函数名 参数列表 完全一致称为重写
+////
 //
-// 
 //
-
-
-int main()
-{
-
-	system("pause");
-	return 0;
-}
+//int main()
+//{
+//
+//	system("pause");
+//	return 0;
+//}
